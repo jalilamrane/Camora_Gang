@@ -14,13 +14,24 @@
         }
         header {
             background-color: #333;
-            color: #f9c7d1; /* جعل النص باللون الوردي */
-            padding: 20px 0;
+            color: #f9c7d1;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            font-weight: bold; /* جعل الخط عريض */
+        header nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        header nav a {
+            color: #f9c7d1;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+        header nav a:hover {
+            color: #e141e1;
         }
         .content {
             padding: 20px;
@@ -65,7 +76,11 @@
 </head>
 <body>
     <header>
-        <h1>Arabian Netowrk Website</h1>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="rules.html">القوانين</a>
+            <a href="apply.html">التقديمات</a>
+        </nav>
     </header>
     <div class="content">
         <p>Devloped By Jalil هذا الموقع قيد التطوير. قريبًا سأضيف المزيد من المحتوى الرائع!</p>
