@@ -20,12 +20,14 @@
             top: 0;
             display: flex;
             align-items: center;
-            justify-content: space-between; /* توزيع العناصر بشكل متناسق */
+            justify-content: space-between; /* توزيع العناصر */
             padding: 0 20px; /* إضافة مسافة على الجوانب */
         }
         header nav {
+            flex-grow: 1; /* لجعل الروابط في المنتصف */
             display: flex;
-            gap: 20px;
+            justify-content: center; /* ضبط التمركز */
+            gap: 20px; /* مسافة بين الروابط */
         }
         header nav a {
             color: #f9c7d1;
@@ -65,7 +67,7 @@
             font-size: 0.9em;
         }
 
-        /* إضافة تنسيق للصورة */
+        /* تنسيق للصورة */
         .image-container {
             text-align: center;
             margin: 0; /* إزالة المسافات حول الصورة */
@@ -80,13 +82,14 @@
 </head>
 <body>
     <header>
-        <!-- إضافة الشعار -->
-        <img src="https://media.discordapp.net/attachments/1223611654441533555/1325779323034275992/snapedit_1736160792175.png?ex=677d07b6&is=677bb636&hm=72a6a3abe0fa4c8c34704b139b92fa7c6ecbda7865787d60dc5e6bd6f6f93324&=&format=webp&quality=lossless&width=586&height=586" alt="شعار">
+        <!-- الروابط في المنتصف -->
         <nav>
             <a href="index.html">الرئيسية</a>
             <a href="rules.html">القوانين</a>
             <a href="apply.html">التقديمات</a>
         </nav>
+        <!-- إضافة الشعار في الركن الأيمن -->
+        <img src="https://media.discordapp.net/attachments/1223611654441533555/1325779323034275992/snapedit_1736160792175.png?ex=677d07b6&is=677bb636&hm=72a6a3abe0fa4c8c34704b139b92fa7c6ecbda7865787d60dc5e6bd6f6f93324&=&format=webp&quality=lossless&width=586&height=586" alt="شعار">
     </header>
     <div class="content">
         <!-- الصورة تكون مباشرة تحت القائمة -->
