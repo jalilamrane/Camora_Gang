@@ -4,86 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arabian Network</title>
-    <!-- إضافة أيقونة التبويب -->
-    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1223611654441533555/1325779323034275992/snapedit_1736160792175.png" />
     <style>
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
             background-color: #000;
-            color: #e141e1;
-        }
-        header {
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        header .logo {
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-        }
-        header .logo img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-        header nav {
-            flex: 1;
+            color: #f9c7d1; /* جعل اللون الوردي */
             text-align: center;
         }
+        header {
+            background-color: #333;
+            color: #f9c7d1;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* توزيع العناصر */
+            padding: 0 20px; /* إضافة مسافة على الجوانب */
+        }
+        header nav {
+            flex-grow: 1; /* لجعل الروابط في المنتصف */
+            display: flex;
+            justify-content: center; /* ضبط التمركز */
+            gap: 20px; /* مسافة بين الروابط */
+        }
         header nav a {
-            margin: 0 15px;
+            color: #f9c7d1;
             text-decoration: none;
-            color: #fff;
-            font-size: 1.2em;
+            font-weight: bold;
+            padding: 5px 10px;
         }
         header nav a:hover {
             color: #e141e1;
         }
+        header img {
+            width: 50px; /* حجم الشعار */
+            height: 50px;
+            border-radius: 50%; /* جعل الشعار دائرياً */
+        }
         .content {
-            text-align: center;
-            padding: 20px;
+            padding: 0; /* إزالة المسافات الفارغة */
         }
-        .image-container {
-            margin: 20px 0;
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
         }
-        .image-container img {
-            width: 1280px;
-            height: 720px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .btn:hover {
+            background-color: #218838;
         }
         footer {
             margin-top: 20px;
-            background-color: #1a1a1a;
-            color: #fff;
+            background-color: #333;
+            color: white;
             padding: 10px 0;
+            font-size: 0.9em;
+        }
+
+        /* تنسيق للصورة */
+        .image-container {
             text-align: center;
+            margin: 0; /* إزالة المسافات حول الصورة */
+        }
+        .image-container img {
+            width: 1280px;  /* تعديل الحجم إلى 1280 */
+            height: 720px;  /* تعديل الحجم إلى 720 */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* إضافة ظل حول الصورة */
         }
     </style>
 </head>
 <body>
     <header>
-        <!-- الشعار في الركن الأيمن -->
-        <div class="logo">
-            <img src="https://media.discordapp.net/attachments/1223611654441533555/1325779323034275992/snapedit_1736160792175.png" alt="شعار الموقع">
-        </div>
-        <!-- قائمة الروابط في المنتصف -->
+        <!-- الروابط في المنتصف -->
         <nav>
             <a href="index.html">الرئيسية</a>
             <a href="rules.html">القوانين</a>
-            <a href="submissions.html">التقديمات</a>
+            <a href="apply.html">التقديمات</a>
         </nav>
+        <!-- إضافة الشعار في الركن الأيمن -->
+        <img src="https://media.discordapp.net/attachments/1223611654441533555/1325779323034275992/snapedit_1736160792175.png?ex=677d07b6&is=677bb636&hm=72a6a3abe0fa4c8c34704b139b92fa7c6ecbda7865787d60dc5e6bd6f6f93324&=&format=webp&quality=lossless&width=586&height=586" alt="شعار">
     </header>
     <div class="content">
-        <!-- صورة الموقع في المنتصف -->
+        <!-- الصورة تكون مباشرة تحت القائمة -->
         <div class="image-container">
             <img src="https://media.discordapp.net/attachments/1223611654441533555/1325129523330813993/gold.png?ex=677aaa8a&is=6779590a&hm=bf27d8eefd733dbc02803838cf0a1bd7047f8d4c67a0ca3cfac012b114a5277c&=&format=webp&quality=lossless&width=825&height=463" alt="صورة الموقع">
         </div>
+
+        <!-- تعديل الرابط هنا -->
+        <a href="https://discord.gg/YXkfNANrpZ" class="btn" target="_blank">تواصل معنا</a>
     </div>
     <footer>
         &copy; 2025 جميع الحقوق محفوظة.
