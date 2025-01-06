@@ -18,10 +18,13 @@
             padding: 10px 0;
             position: sticky;
             top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* توزيع العناصر بشكل متناسق */
+            padding: 0 20px; /* إضافة مسافة على الجوانب */
         }
         header nav {
             display: flex;
-            justify-content: center;
             gap: 20px;
         }
         header nav a {
@@ -32,6 +35,11 @@
         }
         header nav a:hover {
             color: #e141e1;
+        }
+        header img {
+            width: 50px; /* حجم الشعار */
+            height: 50px;
+            border-radius: 50%; /* جعل الشعار دائرياً */
         }
         .content {
             padding: 0; /* إزالة المسافات الفارغة */
@@ -72,6 +80,8 @@
 </head>
 <body>
     <header>
+        <!-- إضافة الشعار -->
+        <img src="https://media.discordapp.net/attachments/1223611654441533555/1325779323034275992/snapedit_1736160792175.png?ex=677d07b6&is=677bb636&hm=72a6a3abe0fa4c8c34704b139b92fa7c6ecbda7865787d60dc5e6bd6f6f93324&=&format=webp&quality=lossless&width=586&height=586" alt="شعار">
         <nav>
             <a href="index.html">الرئيسية</a>
             <a href="rules.html">القوانين</a>
