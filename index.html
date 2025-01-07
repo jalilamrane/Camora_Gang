@@ -8,27 +8,26 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #242426; /* تغيير لون الخلفية */
+            background-color: #242426;
             color: #f9c7d1; /* جعل اللون الوردي */
             text-align: center;
         }
         header {
-            background-color: #242426; /* لون الشريط */
+            background-color: #242426;
             color: #f9c7d1;
-            padding: 20px 0; /* زيادة المسافة العمودية */
+            padding: 10px 0;
             position: sticky;
             top: 0;
             display: flex;
             align-items: center;
-            justify-content: space-between; /* توزيع العناصر */
-            padding: 0 20px; /* إضافة مسافة على الجوانب */
-            height: 80px; /* تحديد ارتفاع الشريط */
+            justify-content: space-between;
+            padding: 0 20px;
         }
         header nav {
-            flex-grow: 1; /* لجعل الروابط في المنتصف */
+            flex-grow: 1;
             display: flex;
-            justify-content: center; /* ضبط التمركز */
-            gap: 20px; /* مسافة بين الروابط */
+            justify-content: center;
+            gap: 20px;
         }
         header nav a {
             color: #f9c7d1;
@@ -42,23 +41,34 @@
         header img {
             width: 90px; /* حجم الشعار */
             height: 90px;
-            border-radius: 50%; /* جعل الشعار دائرياً */
+            border-radius: 50%;
         }
         .content {
-            padding: 0; /* إزالة المسافات الفارغة */
+            padding: 0;
         }
-        .btn {
-            display: inline-block;
+        .image-container {
+            text-align: center;
+            margin: 0;
+        }
+        .image-container img {
+            width: 1255px;
+            height: 720px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+        }
+        .text-container {
             margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
+            color: #f9c7d1; /* نفس اللون الوردي */
+            text-align: center;
         }
-        .btn:hover {
-            background-color: #218838;
+        .text-container h2 {
+            font-weight: bold;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .text-container p {
+            font-size: 1.2em;
+            line-height: 1.6;
         }
         footer {
             margin-top: 20px;
@@ -67,39 +77,28 @@
             padding: 10px 0;
             font-size: 0.9em;
         }
-
-        /* تنسيق للصورة */
-        .image-container {
-            text-align: center;
-            margin: 0; /* إزالة المسافات حول الصورة */
-        }
-        .image-container img {
-            width: 1255px;  /* تعديل الحجم إلى 1280 */
-            height: 720px;  /* تعديل الحجم إلى 720 */
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* إضافة ظل حول الصورة */
-        }
     </style>
 </head>
 <body>
     <header>
-        <!-- الروابط في المنتصف -->
         <nav>
             <a href="index.html">الرئيسية</a>
             <a href="rules.html">القوانين</a>
             <a href="apply.html">التقديمات</a>
         </nav>
-        <!-- إضافة الشعار في الركن الأيمن -->
         <img src="https://media.discordapp.net/attachments/1223611654441533555/1325779323034275992/snapedit_1736160792175.png?ex=677d07b6&is=677bb636&hm=72a6a3abe0fa4c8c34704b139b92fa7c6ecbda7865787d60dc5e6bd6f6f93324&=&format=webp&quality=lossless&width=586&height=586" alt="شعار">
     </header>
     <div class="content">
-        <!-- الصورة تكون مباشرة تحت القائمة -->
         <div class="image-container">
             <img src="https://media.discordapp.net/attachments/1223611654441533555/1326184818018484284/1.gif?ex=677e815b&is=677d2fdb&hm=46579ec054caed6eb879e59b2e27d18079e4870bbf7615822cad04d0e0a3fe4a&=&width=978&height=586" alt="صورة الموقع">
         </div>
-
-        <!-- تعديل الرابط هنا -->
-        <a href="https://discord.gg/YXkfNANrpZ" class="btn" target="_blank">تواصل معنا</a>
+        <div class="text-container">
+            <h2>سيرفر عرب نتورك للحياة الواقعية</h2>
+            <p>
+                سيرفر "وناسة تايم" للحياة الواقعية هو مجتمع افتراضي داخل منصة MTA:SA يهدف إلى توفير بيئة ممتعة ومرحة للأشخاص الذين يرغبون في التواصل والتفاعل مع بعضهم البعض داخل عالم افتراضي. 
+                يعتبر هذا السيرفر مكانًا للترفيه والتسلية والتعارف، حيث يمكن للأعضاء التفاعل مع بعضهم البعض من خلال تقمص الأدوار الواقعية والألعاب والفعاليات المختلفة.
+            </p>
+        </div>
     </div>
     <footer>
         &copy; 2025 Copyright Arabian Network. Developed by Jalil
