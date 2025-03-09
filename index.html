@@ -65,10 +65,10 @@
             font-weight: bold;
             font-size: 1.8em;
             margin-bottom: 10px;
-            text-align: left;
-            margin-left: 20px;
+            text-align: center;
             display: flex;
             align-items: center;
+            justify-content: center;
         }
         .text-container h2 img {
             margin-left: 10px;
@@ -130,8 +130,6 @@
         .close-btn:hover {
             background: #ff1a1a;
         }
-
-        /* ✅ خلفية شفافة عند ظهور النافذة */
         .overlay {
             display: none;
             position: fixed;
@@ -141,6 +139,39 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             z-index: 999;
+        }
+
+        /* ✅ تصميم Gang Staff */
+        .gang-staff-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .staff-member {
+            text-align: center;
+            background: #1e1e1f;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            width: 150px;
+        }
+        .staff-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #e141e1;
+        }
+        .staff-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #f9c7d1;
+            margin-top: 10px;
+        }
+        .staff-rank {
+            font-size: 1em;
+            color: #dad8d9;
         }
     </style>
 </head>
@@ -159,15 +190,32 @@
         <div class="image-container">
             <img src="https://d.top4top.io/p_33553byx81.gif" alt="صورة الموقع">
         </div>
+
+        <!-- ✅ قصة العصابة -->
         <div class="text-container">
             <h2>
-                <img src="https://e.top4top.io/p_3355ssfyr1.png" 
-                     alt="إيموجي" style="width: 32px; height: 32px; vertical-align: middle;">
+                <img src="https://e.top4top.io/p_3355ssfyr1.png" alt="إيموجي" style="width: 32px; height: 32px;">
                 قصة العصابة
             </h2>
             <p>
-                في شوارع لوس سانتوس المظلمة، حيث تسود الفوضى والجريمة، ظهرت عصابة كامورا الإيطالية كواحدة من أخطر المنظمات الإجرامية. يقودها ريكاردو فيروني، رجل بلا رحمة، يسيطر على تجارة الأسلحة والمخدرات بقبضة حديدية. لا أحد يجرؤ على تحديهم، فمن يفعل... يختفي في ظلام المدينة دون أثر.
+                في شوارع لوس سانتوس المظلمة، حيث تسود الفوضى والجريمة، ظهرت عصابة كامورا الإيطالية كواحدة من أخطر المنظمات الإجرامية.
             </p>
+        </div>
+
+        <!-- ✅ قسم Gang Staff -->
+        <div class="text-container">
+            <h2>
+                <img src="https://e.top4top.io/p_3355ssfyr1.png" alt="إيموجي" style="width: 32px; height: 32px;">
+                Gang Staff
+            </h2>
+
+            <div class="gang-staff-container">
+                <div class="staff-member">
+                    <img src="https://via.placeholder.com/100" alt="عضو 1">
+                    <p class="staff-name">Riccardo Veroni</p>
+                    <p class="staff-rank">Leader</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -175,35 +223,11 @@
         &copy; 2025 Copyright Camorra Gang. Developed by Jalil
     </footer>
 
-    <!-- ✅ نافذة القوانين -->
-    <div class="overlay" id="overlay" onclick="closeRules()"></div>
-    <div class="rules-popup" id="rulesPopup">
-        <button class="close-btn" onclick="closeRules()">X</button>
-        <h2>قوانين العصابات</h2>
-        <p><b>1.</b> يمنع استخدام البرامج الغش والاعتماد على المساعدة بجميع أنواعها.</p>
-        <p><b>2.</b> يمنع القتل بدون تهديد أو إنذار سابق.</p>
-        <p><b>3.</b> يجب أن يكون الاربي واجبًا في جميع أعمال العصابات.</p>
-        <p><b>4.</b> يمنع مداهمة المنشآت الحكومية بدون إذن إداري.</p>
-        <p><b>5.</b> يمنع رفع السلاح أثناء المطاردة حفاظًا على الحياة.</p>
-        <p><b>6.</b> يجب احترام اللاعبين وعدم إيذائهم دون مبرر.</p>
-        <p><b>7.</b> يمنع الافك داخل مناطق الاحتلال.</p>
-
-        <h2>قوانين السرقة والخطف</h2>
-        <p><b>1.</b> السرقة تتطلب وجود 4 أفراد وسيارة.</p>
-        <p><b>2.</b> يمنع القتال للمتعة فقط.</p>
-        <p><b>3.</b> يمنع خطف اللاعبين الجدد.</p>
-
-        <h2>اللعب العادل</h2>
-        <p><b>1.</b> يمنع استفزاز الشرطة.</p>
-        <p><b>2.</b> يمنع الهروب من المدينة بعد جريمة قبل 15 دقيقة.</p>
-    </div>
-
     <script>
         function showRules() {
             document.getElementById("rulesPopup").style.display = "block";
             document.getElementById("overlay").style.display = "block";
         }
-
         function closeRules() {
             document.getElementById("rulesPopup").style.display = "none";
             document.getElementById("overlay").style.display = "none";
@@ -212,4 +236,3 @@
 
 </body>
 </html>
-
