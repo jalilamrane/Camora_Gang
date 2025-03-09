@@ -87,7 +87,7 @@
             text-align: center;
         }
 
-        /* ✅ نافذة القوانين */
+        /* ✅ تنسيق نوافذ القوانين والأعضاء */
         .rules-popup {
             display: none;
             position: fixed;
@@ -142,6 +142,21 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: 999;
         }
+
+        /* ✅ تصميم نافذة الأعضاء */
+        .member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
     </style>
 </head>
 <body>
@@ -151,6 +166,7 @@
             <a href="index.html">الرئيسية</a>
             <a onclick="showRules()">القوانين</a>
             <a href="https://discord.gg/WuEVyqD7AP" target="_blank">التقديم للعصابة</a>
+            <a onclick="showMembers()">الأعضاء</a>
         </nav>
         <img src="https://e.top4top.io/p_3355pgnnu1.gif" alt="شعار">
     </header>
@@ -158,16 +174,6 @@
     <div class="content">
         <div class="image-container">
             <img src="https://d.top4top.io/p_33553byx81.gif" alt="صورة الموقع">
-        </div>
-        <div class="text-container">
-            <h2>
-                <img src="https://e.top4top.io/p_3355ssfyr1.png" 
-                     alt="إيموجي" style="width: 32px; height: 32px; vertical-align: middle;">
-                قصة العصابة
-            </h2>
-            <p>
-                في شوارع لوس سانتوس المظلمة، حيث تسود الفوضى والجريمة، ظهرت عصابة كامورا الإيطالية كواحدة من أخطر المنظمات الإجرامية. يقودها ريكاردو فيروني، رجل بلا رحمة، يسيطر على تجارة الأسلحة والمخدرات بقبضة حديدية. لا أحد يجرؤ على تحديهم، فمن يفعل... يختفي في ظلام المدينة دون أثر.
-            </p>
         </div>
     </div>
 
@@ -198,16 +204,23 @@
         <p><b>2.</b> يمنع الهروب من المدينة بعد جريمة قبل 15 دقيقة.</p>
     </div>
 
-    <script>
-        function showRules() {
-            document.getElementById("rulesPopup").style.display = "block";
-            document.getElementById("overlay").style.display = "block";
-        }
+    <!-- ✅ نافذة الأعضاء -->
+    <div class="overlay" id="overlayMembers" onclick="closeMembers()"></div>
+    <div class="rules-popup" id="membersPopup">
+        <button class="close-btn" onclick="closeMembers()">X</button>
+        <h2>Gang Staff</h2>
+        <div class="member">
+            <img src="https://via.placeholder.com/90" alt="Profile Pic" class="profile-pic">
+            <p><strong>الاسم:</strong> John Doe</p>
+            <p><strong>الرتبة:</strong> القائد</p>
+        </div>
+    </div>
 
-        function closeRules() {
-            document.getElementById("rulesPopup").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-        }
+    <script>
+        function showRules() { document.getElementById("rulesPopup").style.display = "block"; document.getElementById("overlay").style.display = "block"; }
+        function closeRules() { document.getElementById("rulesPopup").style.display = "none"; document.getElementById("overlay").style.display = "none"; }
+        function showMembers() { document.getElementById("membersPopup").style.display = "block"; document.getElementById("overlayMembers").style.display = "block"; }
+        function closeMembers() { document.getElementById("membersPopup").style.display = "none"; document.getElementById("overlayMembers").style.display = "none"; }
     </script>
 
 </body>
