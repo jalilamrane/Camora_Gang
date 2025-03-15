@@ -174,45 +174,41 @@
     }
 
     function sendApplication() {
-        const webhookURL = "https://discord.com/api/webhooks/1350445258386968576/7KiJu8kO-JWCT3qVge8MJNybCpO710IFh-g4KsCuFs5D6L5rgHqemKyCqS2eIzD2NGbR";
+    const webhookURL = "https://discord.com/api/webhooks/1350445258386968576/7KiJu8kO-JWCT3qVge8MJNybCpO710IFh-g4KsCuFs5D6L5rgHqemKyCqS2eIzD2NGbR";
 
-        let charName = document.getElementById("charName").value;
-        let charID = document.getElementById("charID").value;
-        let rules = document.getElementById("rules").value;
-        let discordUser = document.getElementById("discordUser").value;
 
-        if (!charName || !charID || !rules || !discordUser) {
-            alert("يرجى تعبئة جميع الحقول المطلوبة!");
-            return;
-        }
+    let charName = document.getElementById("charName").value;
+    let charID = document.getElementById("charID").value;
+    let rules = document.getElementById("rules").value;
+    let discordUser = document.getElementById("discordUser").value;
 
-        let message = `
-**📜 طلب تقديم جديد للعصابة:**
+    if (!charName || !charID || !rules || !discordUser) {
+        alert("يرجى تعبئة جميع الحقول المطلوبة!");
+        return;
+    }
+
+    let message = `**📜 طلب تقديم جديد للعصابة:**
 👤 **الاسم:** ${charName}
 🆔 **ايدي:** ${charID}
 📜 **قوانين الاربى:** ${rules}
-🎮 **ديسكورد:** \u202E${discordUser}
-        `;
+🎮 **ديسكورد:** ‎${discordUser}
+    `;
 
-        let payload = { content: message };
+    let payload = { content: message };
 
-        fetch(webhookURL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-        }).then(response => {
-            if (response.ok) {
-                alert("✅ تم إرسال الطلب بنجاح!");
-                closePopup();
-            } else {
-                alert("❌ حدث خطأ أثناء الإرسال!");
-            }
-        }).catch(error => {
-            alert("❌ مشكلة في الاتصال بالويب هوك!");
-            console.error(error);
-        });
-    }
-</script>
-
-</body>
-</html>
+    fetch(webhookURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    }).then(response => {
+        if (response.ok) {
+            alert("✅ تم إرسال الطلب بنجاح!");
+            closePopup();
+        } else {
+            alert("❌ حدث خطأ أثناء الإرسال!");
+        }
+    }).catch(error => {
+        alert("❌ مشكلة في الاتصال بالويب هوك!");
+        console.error(error);
+    });
+}
