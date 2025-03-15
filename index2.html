@@ -1,1 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقديم طلب الانضمام</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        form {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: auto;
+        }
+        label, input, textarea, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input, textarea {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: darkgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>تقديم طلب الانضمام</h2>
+    <form id="applyForm">
+        <label>اسم الشخصية:</label>
+        <input type="text" id="name" required>
+
+        <label>ايدي:</label>
+        <input type="number" id="id" required>
+
+        <label>صور لساعاتك:</label>
+        <input type="file" id="hoursImage" accept="image/*" required>
+
+        <label>صورة للهيستوري:</label>
+        <input type="file" id="historyImage" accept="image/*" required>
+
+        <label>قوانين الـ اربي</label>
+        <label>PG:</label>
+        <input type="text" id="pg" required>
+
+        <label>DM:</label>
+        <input type="text" id="dm" required>
+
+        <label>KOS:</label>
+        <input type="text" id="kos" required>
+
+        <label>DOS:</label>
+        <input type="text" id="dos" required>
+
+        <label>RP:</label>
+        <input type="text" id="rp" required>
+
+        <label>LTA:</label>
+        <input type="text" id="lta" required>
+
+        <label>RDM:</label>
+        <input type="text" id="rdm" required>
+
+        <label>RK:</label>
+        <input type="text" id="rk" required>
+
+        <label>SL:</label>
+        <input type="text" id="sl" required>
+
+        <label>SK:</label>
+        <input type="text" id="sk" required>
+
+        <label>يوزرك ديسكورد:</label>
+        <input type="text" id="discordUser" required>
+
+        <button type="submit">إرسال</button>
+    </form>
+
+    <script>
+        document.getElementById("applyForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const webhookURL = "https://discord.com/api/webhooks/1350445258386968576/7KiJu8kO-JWCT3qVge8MJNybCpO710IFh-g4KsCuFs5D6L5rgHqemKyCqS2eIzD2NGbR";
+
+            const name = document.getElementById("name").value;
+            const id = document.getElementById("id").value;
+            const discordUser = document.getElementById("discordUser").value;
+
+            const pg = document.getElementById("pg").value;
+            const dm = document.getElementById("dm").value;
+            const kos = document.getElementById("kos").value;
+            const dos = document.getElementById("dos").value;
+            const rp = document.getElementById("rp").value;
+            const lta = document.getElementById("lta").value;
+            const rdm = document.getElementById("rdm").value;
+            const rk = document.getElementById("rk").value;
+            const sl = document.getElementById("sl").value;
+            const sk = document.getElementById("sk").value;
+
+            const formData = new FormData();
+            formData.append("content", `📢 **طلب انضمام جديد** 📢
+👤 **اسم الشخصية:** ${name}
+🆔 **ايدي:** ${id}
+🎮 **يوزر ديسكورد:** ${discordUser}
+
+📖 **قوانين الـ اربي**
+- PG: ${pg}
+- DM: ${dm}
+- KOS: ${kos}
+- DOS: ${dos}
+- RP: ${rp}
+- LTA: ${lta}
+- RDM: ${rdm}
+- RK: ${rk}
+- SL: ${sl}
+- SK: ${sk}
+            `);
+
+            // رفع الصور
+            const hoursImage = document.getElementById("hoursImage").files[0];
+            const historyImage = document.getElementById("historyImage").files[0];
+
+            if (hoursImage) formData.append("file", hoursImage, "hours.jpg");
+            if (historyImage) formData.append("file", historyImage, "history.jpg");
+
+            // إرسال البيانات إلى ديسكورد
+            fetch(webhookURL, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("✅ تم إرسال الطلب بنجاح!");
+                    document.getElementById("applyForm").reset();
+                } else {
+                    alert("❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
+                }
+            })
+            .catch(error => {
+                console.error("خطأ في الإرسال:", error);
+                alert("❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
+            });
+        });
+    </script>
+
+</body>
+</html>
 
