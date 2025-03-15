@@ -1,167 +1,218 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تقديم طلب الانضمام</title>
+    <title>Camorra Gang</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 20px;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #242426;
+            color: #f9c7d1;
         }
-        form {
-            background: #333;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 400px;
-            margin: auto;
+        header {
+            background-color: #242426;
+            color: #f9c7d1;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
         }
-        label, input, textarea, button {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
+        header nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
-        input, textarea {
-            padding: 8px;
-            border-radius: 5px;
-            border: none;
-        }
-        button {
-            background: green;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
+        header nav a {
+            color: #f9c7d1;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
             cursor: pointer;
         }
-        button:hover {
-            background: darkgreen;
+        header nav a:hover {
+            color: #e141e1;
+        }
+        header img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+        }
+
+        /* ✅ تصميم النافذة المنبثقة */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            background: #1e1e1f;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            text-align: right;
+        }
+        .popup h2 {
+            text-align: center;
+            color: #e141e1;
+        }
+        .popup label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        .popup input, .popup textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 4px;
+            background: #2b2b2d;
+            color: #fff;
+        }
+        .popup button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .popup button:hover {
+            background: #45a049;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            font-size: 18px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .close-btn:hover {
+            background: #ff1a1a;
+        }
+
+        /* ✅ خلفية شفافة عند ظهور النافذة */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
         }
     </style>
 </head>
 <body>
 
-    <h2>تقديم طلب الانضمام</h2>
-    <form id="applyForm">
-        <label>اسم الشخصية:</label>
-        <input type="text" id="name" required>
+<header>
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a onclick="showPopup('applyPopup')">التقديم للعصابة</a>
+    </nav>
+    <img src="https://e.top4top.io/p_3355pgnnu1.gif" alt="شعار">
+</header>
 
-        <label>ايدي:</label>
-        <input type="number" id="id" required>
+<!-- ✅ نافذة التقديم -->
+<div class="overlay" id="overlay" onclick="closePopup()"></div>
+<div class="popup" id="applyPopup">
+    <button class="close-btn" onclick="closePopup()">X</button>
+    <h2>نموذج التقديم للعصابة</h2>
 
-        <label>صور لساعاتك:</label>
-        <input type="file" id="hoursImage" accept="image/*" required>
+    <label>اسم الشخصية:</label>
+    <input type="text" id="charName">
 
-        <label>صورة للهيستوري:</label>
-        <input type="file" id="historyImage" accept="image/*" required>
+    <label>ايدي:</label>
+    <input type="text" id="charID">
 
-        <label>قوانين الـ اربي</label>
-        <label>PG:</label>
-        <input type="text" id="pg" required>
+    <label>صور لساعاتك:</label>
+    <input type="file" id="charHours" accept="image/*">
 
-        <label>DM:</label>
-        <input type="text" id="dm" required>
+    <label>صورة للهيستوري:</label>
+    <input type="file" id="charHistory" accept="image/*">
 
-        <label>KOS:</label>
-        <input type="text" id="kos" required>
+    <label>قوانين الـ اربي:</label>
+    <textarea id="rules" rows="5" placeholder="PG - DM - KOS - DOS - RP - LTA - RDM - RK - SL - SK"></textarea>
 
-        <label>DOS:</label>
-        <input type="text" id="dos" required>
+    <label>يوزرك في ديسكورد:</label>
+    <input type="text" id="discordUser">
 
-        <label>RP:</label>
-        <input type="text" id="rp" required>
+    <button onclick="sendApplication()">إرسال</button>
+</div>
 
-        <label>LTA:</label>
-        <input type="text" id="lta" required>
+<script>
+    function showPopup(id) {
+        document.getElementById(id).style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+    }
 
-        <label>RDM:</label>
-        <input type="text" id="rdm" required>
-
-        <label>RK:</label>
-        <input type="text" id="rk" required>
-
-        <label>SL:</label>
-        <input type="text" id="sl" required>
-
-        <label>SK:</label>
-        <input type="text" id="sk" required>
-
-        <label>يوزرك ديسكورد:</label>
-        <input type="text" id="discordUser" required>
-
-        <button type="submit">إرسال</button>
-    </form>
-
-    <script>
-        document.getElementById("applyForm").addEventListener("submit", async function(event) {
-            event.preventDefault();
-
-            const webhookURL = "https://discord.com/api/webhooks/1350445258386968576/7KiJu8kO-JWCT3qVge8MJNybCpO710IFh-g4KsCuFs5D6L5rgHqemKyCqS2eIzD2NGbR";
-
-            const name = document.getElementById("name").value;
-            const id = document.getElementById("id").value;
-            const discordUser = document.getElementById("discordUser").value;
-
-            const pg = document.getElementById("pg").value;
-            const dm = document.getElementById("dm").value;
-            const kos = document.getElementById("kos").value;
-            const dos = document.getElementById("dos").value;
-            const rp = document.getElementById("rp").value;
-            const lta = document.getElementById("lta").value;
-            const rdm = document.getElementById("rdm").value;
-            const rk = document.getElementById("rk").value;
-            const sl = document.getElementById("sl").value;
-            const sk = document.getElementById("sk").value;
-
-            const formData = new FormData();
-            formData.append("content", `📢 **طلب انضمام جديد** 📢
-👤 **اسم الشخصية:** ${name}
-🆔 **ايدي:** ${id}
-🎮 **يوزر ديسكورد:** ${discordUser}
-
-📖 **قوانين الـ اربي**
-- PG: ${pg}
-- DM: ${dm}
-- KOS: ${kos}
-- DOS: ${dos}
-- RP: ${rp}
-- LTA: ${lta}
-- RDM: ${rdm}
-- RK: ${rk}
-- SL: ${sl}
-- SK: ${sk}
-            `);
-
-            // رفع الصور
-            const hoursImage = document.getElementById("hoursImage").files[0];
-            const historyImage = document.getElementById("historyImage").files[0];
-
-            if (hoursImage) formData.append("file", hoursImage, "hours.jpg");
-            if (historyImage) formData.append("file", historyImage, "history.jpg");
-
-            // إرسال البيانات إلى ديسكورد
-            fetch(webhookURL, {
-                method: "POST",
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert("✅ تم إرسال الطلب بنجاح!");
-                    document.getElementById("applyForm").reset();
-                } else {
-                    alert("❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
-                }
-            })
-            .catch(error => {
-                console.error("خطأ في الإرسال:", error);
-                alert("❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
-            });
+    function closePopup() {
+        document.querySelectorAll(".popup").forEach(popup => {
+            popup.style.display = "none";
         });
-    </script>
+        document.getElementById("overlay").style.display = "none";
+    }
+
+    function sendApplication() {
+        const webhookURL = "ضع رابط الويب هوك هنا"; // ✅ ضع رابط Webhook هنا
+
+        let charName = document.getElementById("charName").value;
+        let charID = document.getElementById("charID").value;
+        let rules = document.getElementById("rules").value;
+        let discordUser = document.getElementById("discordUser").value;
+
+        if (!charName || !charID || !rules || !discordUser) {
+            alert("يرجى تعبئة جميع الحقول المطلوبة!");
+            return;
+        }
+
+        let message = `
+**📜 طلب تقديم جديد للعصابة:**
+👤 **الاسم:** ${charName}
+🆔 **ايدي:** ${charID}
+📜 **قوانين الاربى:** ${rules}
+🎮 **ديسكورد:** ${discordUser}
+        `;
+
+        let payload = { content: message };
+
+        fetch(webhookURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        }).then(response => {
+            if (response.ok) {
+                alert("✅ تم إرسال الطلب بنجاح!");
+                closePopup();
+            } else {
+                alert("❌ حدث خطأ أثناء الإرسال!");
+            }
+        }).catch(error => {
+            alert("❌ مشكلة في الاتصال بالويب هوك!");
+            console.error(error);
+        });
+    }
+</script>
 
 </body>
 </html>
-
