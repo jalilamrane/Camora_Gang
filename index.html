@@ -1,250 +1,104 @@
-<!DOCTYPE html>
+     <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camorra Gang</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #242426;
-            color: #f9c7d1;
-        }
-        header {
-            background-color: #242426;
-            color: #f9c7d1;
-            padding: 10px 0;
-            position: sticky;
-            top: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-        }
-        header nav {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        header nav a {
-            color: #f9c7d1;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        header nav a:hover {
-            color: #e141e1;
-        }
-        header img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-        }
-
-        /* ✅ نافذة القوانين والأعضاء */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50%;
-            max-height: 70vh;
-            background: #1e1e1f;
-            color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
-            overflow-y: auto;
-            z-index: 1000;
-        }
-        .popup h2 {
-            text-align: center;
-            color: #e141e1;
-        }
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: #ff4d4d;
-            color: white;
-            border: none;
-            font-size: 18px;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .close-btn:hover {
-            background: #ff1a1a;
-        }
-
-        /* ✅ خلفية شفافة عند ظهور النافذة */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-
-        /* ✅ تصميم البروفايلات */
-        .profiles {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            text-align: center;
-        }
-        .profile {
-            background: #2b2b2d;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
-        }
-        .profile img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-        .profile h3 {
-            margin: 5px 0;
-            color: #e141e1;
-        }
-        .profile p {
-            font-size: 14px;
-            color: #ddd;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DZ2Image</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #0f0f0f;
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #444;
+    }
+    select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      background: #00c2ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #009dcf;
+    }
+    #result {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>DZ2Image</h1>
+    <p>حوّل النص إلى صورة أو فيديو أو صوت باستخدام الذكاء الاصطناعي</p>
 
-    <header>
-        <nav>
-            <a href="index.html">الرئيسية</a>
-            <a onclick="showPopup('rulesPopup')">القوانين</a>
-            <a onclick="showPopup('membersPopup')">الأعضاء</a>
-            <a href="https://discord.gg/Hvt9S4bCDX" target="_blank">التقديم للعصابة</a>
+    <textarea id="textInput" rows="4" placeholder="اكتب وصفك هنا..."></textarea>
 
-       </nav>
-        <img src="https://e.top4top.io/p_3355pgnnu1.gif" alt="شعار">
-    </header>
+    <select id="mode">
+      <option value="image">صورة</option>
+      <option value="video">فيديو</option>
+      <option value="audio">صوت</option>
+    </select>
 
-    <div class="content">
-        <div class="image-container">
-            <img src="https://d.top4top.io/p_33553byx81.gif" alt="صورة الموقع">
-        </div>
-        <div class="text-container">
-            <h2>
-                <img src="https://e.top4top.io/p_3355ssfyr1.png" 
-                     alt="إيموجي" style="width: 32px; height: 32px; vertical-align: middle;">
-                قصة العصابة
-            </h2>
-            <p>
-                في شوارع لوس سانتوس المظلمة، حيث تسود الفوضى والجريمة، ظهرت عصابة كامورا الإيطالية كواحدة من أخطر المنظمات الإجرامية. يقودها ريكاردو فيروني، رجل بلا رحمة، يسيطر على تجارة الأسلحة والمخدرات بقبضة حديدية. لا أحد يجرؤ على تحديهم، فمن يفعل... يختفي في ظلام المدينة دون أثر.
-            </p>
-        </div>
-    </div>
+    <select id="style">
+      <option value="anime">أنمي</option>
+      <option value="horror">رعب</option>
+      <option value="cinematic">سينمائي</option>
+      <option value="realistic">واقعي</option>
+    </select>
 
-    <footer>
-        &copy; 2025 Copyright Camorra Gang. Developed by Jalil
-    </footer>
+    <button onclick="generate()">تحويل</button>
 
-    <!-- ✅ نافذة القوانين -->
-    <div class="overlay" id="overlay" onclick="closePopup()"></div>
-    <div class="popup" id="rulesPopup">
-        <button class="close-btn" onclick="closePopup()">X</button>
-        <h2>قوانين العصابات</h2>
-        <p><b>1.</b> يمنع استخدام البرامج الغش والاعتماد على المساعدة بجميع أنواعها.</p>
-        <p><b>2.</b> يمنع القتل بدون تهديد أو إنذار سابق.</p>
-        <p><b>3.</b> يجب أن يكون الاربي واجبًا في جميع أعمال العصابات.</p>
-        <p><b>4.</b> يمنع مداهمة المنشآت الحكومية بدون إذن إداري.</p>
-        <p><b>5.</b> يمنع رفع السلاح أثناء المطاردة حفاظًا على الحياة.</p>
-        <p><b>6.</b> يجب احترام اللاعبين وعدم إيذائهم دون مبرر.</p>
-        <p><b>7.</b> يمنع الافك داخل مناطق الاحتلال.</p>
+    <div id="result"></div>
+  </div>
 
-        <h2>قوانين السرقة والخطف</h2>
-        <p><b>1.</b> السرقة تتطلب وجود 4 أفراد وسيارة.</p>
-        <p><b>2.</b> يمنع القتال للمتعة فقط.</p>
-        <p><b>3.</b> يمنع خطف اللاعبين الجدد.</p>
-        <p><b>4.</b> يجب توفير سبب منطقي عند خطف أي لاعب.</p>
-        <p><b>5.</b> يمنع قتل المخطوف إلا إذا حاول الهروب أو رفض التعاون.</p>
-        <p><b>6.</b> يجب على الخاطفين تقديم طلب فدية منطقي وليس مبلغًا تعجيزيًا.</p>
-        <p><b>7.</b> يمنع خطف نفس اللاعب أكثر من مرة خلال ساعة واحدة.</p>
+  <script>
+    // تغيير اتجاه النص تلقائي حسب اللغة
+    const lang = navigator.language || navigator.userLanguage;
+    if (lang.startsWith("en")) {
+      document.documentElement.lang = "en";
+      document.documentElement.dir = "ltr";
+      document.querySelector("h1").textContent = "DZ2Image";
+      document.querySelector("p").textContent = "Convert text to Image, Video, or Audio using AI";
+      document.querySelector("textarea").placeholder = "Write your prompt here...";
+      document.querySelector("button").textContent = "Generate";
+      document.querySelectorAll("option")[0].textContent = "Image";
+      document.querySelectorAll("option")[1].textContent = "Video";
+      document.querySelectorAll("option")[2].textContent = "Audio";
+      document.querySelectorAll("option")[3].textContent = "Anime";
+      document.querySelectorAll("option")[4].textContent = "Horror";
+      document.querySelectorAll("option")[5].textContent = "Cinematic";
+      document.querySelectorAll("option")[6].textContent = "Realistic";
+    }
 
-        <h2>اللعب العادل</h2>
-        <p><b>1.</b> يمنع استفزاز الشرطة.</p>
-        <p><b>2.</b> يمنع الهروب من المدينة بعد جريمة قبل 15 دقيقة.</p>
-    </div>
+    function generate() {
+      const text = document.getElementById("textInput").value.trim();
+      const mode = document.getElementById("mode").value;
+      const style = document.getElementById("style").value;
 
-    <!-- ✅ نافذة الأعضاء -->
-    <div class="popup" id="membersPopup">
-        <button class="close-btn" onclick="closePopup()">X</button>
-        <h2>أعضاء العصابة</h2>
-        <div class="profiles">
-            <div class="profile">
-                <img src="https://b.top4top.io/p_3356cei0u1.gif" alt="عضو">
-                <h3>Jalil Torrosee</h3>
-                <p>Website Developer</p>
-            </div>
-            <div class="profile">
-                <img src="https://g.top4top.io/p_33569pwl71.jpg" alt="عضو">
-                <h3>Akramz Dostoevsky</h3>
-                <p>HeLL Production</p>
-            </div>
-            <div class="profile">
-                <img src="https://g.top4top.io/p_33627nktx1.jpg" alt="عضو">
-                <h3>Yousef Dostoevsky</h3>
-                <p>Vip Member</p>
-            </div>
-            <div class="profile">
-                <img src="https://b.top4top.io/p_3362u50rb1.jpg" alt="عضو">
-                <h3>Zero Brock</h3>
-                <p>Vip Member</p>
-            </div>
-            <div class="profile">
-                <img src="https://i.top4top.io/p_3360pcl651.jpg" alt="عضو">
-                <h3>Luai ʷᵀ</h3>
-                <p>Temp Faction Team</p>
-            </div>
-            <div class="profile">
-                <img src="https://b.top4top.io/p_3360eoiu41.jpg" alt="عضو">
-                <h3>Mostafa ʷᵀ</h3>
-                <p>Temp Faction Team</p>
-            </div>
-            <div class="profile">
-                <img src="https://g.top4top.io/p_336049uvt1.jpg" alt="عضو">
-                <h3>Tamim</h3>
-                <p>Vice Owner </p>
-            </div>
-            <div class="profile">
-                <img src="https://b.top4top.io/p_3360vxy6x1.jpg" alt="عضو">
-                <h3>𝓗𝓪𝓭𝓮 ʷᵀ</h3>
-                <p>Temp Faction Team</p>
-            </div>
-        </div>
-    </div>
+      if (!text) return alert("يرجى كتابة وصف.");
 
-    <script>
-        function showPopup(id) {
-            document.getElementById(id).style.display = "block";
-            document.getElementById("overlay").style.display = "block";
-        }
-
-        function closePopup() {
-            document.querySelectorAll(".popup").forEach(popup => {
-                popup.style.display = "none";
-            });
-            document.getElementById("overlay").style.display = "none";
-        }
-    </script>
-
+      document.getElementById("result").innerHTML = `
+        <p>جاري المعالجة (${mode}) بالنمط "${style}"...</p>
+        <p style="color: gray;">* ملاحظة: هذه مجرد واجهة. يجب ربطها بـ API.</p>
+      `;
+    }
+  </script>
 </body>
 </html>
+          
