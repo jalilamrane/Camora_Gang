@@ -1,104 +1,84 @@
-     <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DZ2Image</title>
-  <style>
-    body {
-      font-family: Tahoma, sans-serif;
-      background: #0f0f0f;
-      color: white;
-      text-align: center;
-      padding: 40px;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: #1a1a1a;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #444;
-    }
-    select, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 15px;
-      border-radius: 5px;
-      border: none;
-      font-size: 16px;
-    }
-    button {
-      background: #00c2ff;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #009dcf;
-    }
-    #result {
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة فيسبوك</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(-45deg, #1d2b64, #f8cdda, #1d2b64, #f8cdda);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        button {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        .btn-primary {
+            background: #ff416c;
+            color: white;
+        }
+        .btn-secondary {
+            background: #1d2b64;
+            color: white;
+        }
+        small {
+            display: block;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>DZ2Image</h1>
-    <p>حوّل النص إلى صورة أو فيديو أو صوت باستخدام الذكاء الاصطناعي</p>
 
-    <textarea id="textInput" rows="4" placeholder="اكتب وصفك هنا..."></textarea>
+    <h1>✨ صفحتي على فيسبوك ✨</h1>
+    <div>
+        <button class="btn-primary" onclick="openPage()">عرض الصفحة</button>
+        <button class="btn-secondary" onclick="openLive()">عرض البث المباشر</button>
+    </div>
 
-    <select id="mode">
-      <option value="image">صورة</option>
-      <option value="video">فيديو</option>
-      <option value="audio">صوت</option>
-    </select>
+    <small>⚠ تأكد أن الصفحة عامة للوصول إليها.</small>
 
-    <select id="style">
-      <option value="anime">أنمي</option>
-      <option value="horror">رعب</option>
-      <option value="cinematic">سينمائي</option>
-      <option value="realistic">واقعي</option>
-    </select>
+    <script>
+        const fbPage = "https://www.facebook.com/profile.php?id=100087201798383&mibextid=rS40aB7S9Ucbxw6v";
 
-    <button onclick="generate()">تحويل</button>
+        function openPage() {
+            window.open(fbPage, '_blank');
+        }
 
-    <div id="result"></div>
-  </div>
+        function openLive() {
+            const liveLink = fbPage.includes('?') ? `${fbPage}&sk=live` : `${fbPage}?sk=live`;
+            window.open(liveLink, '_blank');
+        }
+    </script>
 
-  <script>
-    // تغيير اتجاه النص تلقائي حسب اللغة
-    const lang = navigator.language || navigator.userLanguage;
-    if (lang.startsWith("en")) {
-      document.documentElement.lang = "en";
-      document.documentElement.dir = "ltr";
-      document.querySelector("h1").textContent = "DZ2Image";
-      document.querySelector("p").textContent = "Convert text to Image, Video, or Audio using AI";
-      document.querySelector("textarea").placeholder = "Write your prompt here...";
-      document.querySelector("button").textContent = "Generate";
-      document.querySelectorAll("option")[0].textContent = "Image";
-      document.querySelectorAll("option")[1].textContent = "Video";
-      document.querySelectorAll("option")[2].textContent = "Audio";
-      document.querySelectorAll("option")[3].textContent = "Anime";
-      document.querySelectorAll("option")[4].textContent = "Horror";
-      document.querySelectorAll("option")[5].textContent = "Cinematic";
-      document.querySelectorAll("option")[6].textContent = "Realistic";
-    }
-
-    function generate() {
-      const text = document.getElementById("textInput").value.trim();
-      const mode = document.getElementById("mode").value;
-      const style = document.getElementById("style").value;
-
-      if (!text) return alert("يرجى كتابة وصف.");
-
-      document.getElementById("result").innerHTML = `
-        <p>جاري المعالجة (${mode}) بالنمط "${style}"...</p>
-        <p style="color: gray;">* ملاحظة: هذه مجرد واجهة. يجب ربطها بـ API.</p>
-      `;
-    }
-  </script>
 </body>
 </html>
-          
