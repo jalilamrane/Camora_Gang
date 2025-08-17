@@ -35,12 +35,20 @@
     }
 
     .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 8px; /* مسافة بين النص والصورة */
       color: #fff;
       text-decoration: none;
       font-size: 18px;
       padding: 8px 16px;
       border-radius: 6px;
       transition: all 0.3s ease;
+    }
+
+    .nav-links a img {
+      height: 20px; /* حجم صورة الإيموجي */
+      width: 20px;
     }
 
     /* عند التمرير */
@@ -72,8 +80,22 @@
 
     <!-- الأزرار -->
     <div class="nav-links">
-      <a href="#" class="active">الرئيسية</a>
-      <a href="#">الفيديوهات</a>
+      <a href="#" class="active">
+        الرئيسية 
+        <img src="icons/home.png" alt="🏠">
+      </a>
+      <a href="#">
+        الفيديوهات 
+        <img src="icons/video.png" alt="🎥">
+      </a>
+      <a href="#">
+        مكتبتي 
+        <img src="icons/library.png" alt="📚">
+      </a>
+      <a href="#">
+        البث المباشر 
+        <img src="icons/live.png" alt="🔴">
+      </a>
     </div>
   </div>
 
