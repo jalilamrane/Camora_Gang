@@ -15,15 +15,26 @@
     /* الشريط العلوي */
     .navbar {
       display: flex;
-      justify-content: right;
+      justify-content: space-between; /* يخلي الشعار في طرف والأزرار في طرف */
       align-items: center;
       background-color: #111; 
-      padding: 15px 20px;
+      padding: 10px 25px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-      gap: 30px; /* تباعد بين الأزرار */
     }
 
-    .navbar a {
+    /* الشعار */
+    .logo img {
+      height: 40px; /* حجم الشعار */
+      cursor: pointer;
+    }
+
+    /* القائمة */
+    .nav-links {
+      display: flex;
+      gap: 25px; /* تباعد بين الأزرار */
+    }
+
+    .nav-links a {
       color: #fff;
       text-decoration: none;
       font-size: 18px;
@@ -33,13 +44,13 @@
     }
 
     /* عند التمرير */
-    .navbar a:hover {
+    .nav-links a:hover {
       background-color: #333;
     }
 
-    /* عند الضغط أو الزر النشط */
-    .navbar a:active,
-    .navbar a.active {
+    /* عند الضغط أو النشط */
+    .nav-links a:active,
+    .nav-links a.active {
       background-color: #444;
       box-shadow: inset 0 2px 5px rgba(0,0,0,0.7);
     }
@@ -54,8 +65,18 @@
 <body>
   <!-- الشريط العلوي -->
   <div class="navbar">
-    <a href="#" class="active">الرئيسية</a>
-    <a href="#">الفيديوهات</a>
+    <!-- الشعار -->
+    <div class="logo">
+      <img src="logo.png" alt="شعار القناة">
+    </div>
+
+    <!-- الأزرار -->
+    <div class="nav-links">
+      <a href="#" class="active">الرئيسية</a>
+      <a href="#">الفيديوهات</a>
+      <a href="#">مكتبتي</a>
+      <a href="#">البث المباشر 🔴</a>
+    </div>
   </div>
 
   <!-- المحتوى الرئيسي -->
