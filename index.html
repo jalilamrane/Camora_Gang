@@ -46,10 +46,21 @@
       transition: all 0.3s ease;
     }
 
-    /* تكبير الأيقونات */
-    .nav-links a img {
-      height: 60px; /* تكبير الصورة */
+    /* صندوق الأيقونات */
+    .icon-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;   /* ارتفاع ثابت للشريط */
+      width: 40px;    /* عرض ثابت */
+      overflow: hidden;
+    }
+
+    /* حجم الأيقونة */
+    .icon-box img {
+      height: 60px;  /* حجم الصورة */
       width: 60px;
+      object-fit: contain;
     }
 
     /* عند التمرير */
@@ -83,19 +94,27 @@
     <div class="nav-links">
       <a href="#" class="active">
         الرئيسية 
-        <img src="https://f.top4top.io/p_3517uu5mc1.png" alt="🏠">
+        <span class="icon-box">
+          <img src="https://f.top4top.io/p_3517uu5mc1.png" alt="🏠">
+        </span>
       </a>
       <a href="#">
         الفيديوهات 
-        <img src="icons/video.png" alt="🎥">
+        <span class="icon-box">
+          <img src="icons/video.png" alt="🎥">
+        </span>
       </a>
       <a href="#">
         مكتبتي 
-        <img src="icons/library.png" alt="📚">
+        <span class="icon-box">
+          <img src="icons/library.png" alt="📚">
+        </span>
       </a>
       <a href="#">
         البث المباشر 
-        <img src="icons/live.png" alt="🔴">
+        <span class="icon-box">
+          <img src="icons/live.png" alt="🔴">
+        </span>
       </a>
     </div>
   </div>
