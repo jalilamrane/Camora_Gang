@@ -20,6 +20,7 @@
       padding: 10px 25px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.5);
       gap: 25px; /* المسافة بين الشعار والأزرار */
+      height: 60px; /* ارتفاع الشريط */
     }
 
     /* الشعار */
@@ -75,10 +76,20 @@
       box-shadow: inset 0 2px 5px rgba(0,0,0,0.7);
     }
 
-    /* محتوى تجريبي */
-    .content {
-      text-align: center;
-      margin-top: 100px;
+    /* صورة أسفل الشريط */
+    .main-image {
+      width: 100%;
+      height: 180px; /* 3 أضعاف ارتفاع الشريط (60 × 3) */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .main-image img {
+      height: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -103,13 +114,14 @@
           <img src="https://l.top4top.io/p_3517yte2w1.png" alt="🎥">
         </span>
         الفيديوهات 
+      </a>
     </div>
   </div>
 
-  <!-- المحتوى الرئيسي -->
-  <div class="content">
-    <h1>مرحباً بك في موقع قناتي</h1>
-    <p>هنا تقدر تشوف آخر الفيديوهات والتحديثات</p>
+  <!-- صورة تحت الشريط -->
+  <div class="main-image">
+    <img src="https://via.placeholder.com/800x600" alt="صورة">
   </div>
+
 </body>
 </html>
