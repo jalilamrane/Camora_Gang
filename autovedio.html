@@ -12,82 +12,30 @@
       margin: 0;
       padding: 20px;
     }
-
-    .section {
-      margin-top: 30px;
-    }
-
+    .section { margin-top: 30px; }
     .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 15px;
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;
     }
-
-    .section-header h2 {
-      margin: 0;
-      font-size: 22px;
-    }
-
-    .arrows {
-      display: flex;
-      gap: 10px;
-    }
-
+    .section-header h2 { margin: 0; font-size: 22px; }
+    .arrows { display: flex; gap: 10px; }
     .arrow {
-      background: #333;
-      border: none;
-      color: #fff;
-      font-size: 20px;
-      cursor: pointer;
-      padding: 5px 12px;
-      border-radius: 50%;
+      background: #333; border: none; color: #fff; font-size: 20px;
+      cursor: pointer; padding: 5px 12px; border-radius: 50%;
       transition: background 0.3s;
     }
-
-    .arrow:hover {
-      background: #555;
-    }
-
+    .arrow:hover { background: #555; }
     .slider {
-      display: flex;
-      gap: 15px;
-      overflow-x: auto;
-      scroll-behavior: smooth;
+      display: flex; gap: 15px; overflow-x: auto; scroll-behavior: smooth;
     }
-
-    .slider::-webkit-scrollbar {
-      display: none;
-    }
-
+    .slider::-webkit-scrollbar { display: none; }
     .card {
-      min-width: 220px;
-      background: #222;
-      border-radius: 10px;
-      overflow: hidden;
-      flex-shrink: 0;
-      cursor: pointer;
-      transition: transform 0.3s;
-      text-decoration: none;
-      color: #fff;
+      min-width: 220px; background: #222; border-radius: 10px;
+      overflow: hidden; flex-shrink: 0; cursor: pointer;
+      transition: transform 0.3s; text-decoration: none; color: #fff;
     }
-
-    .card:hover {
-      transform: scale(1.05);
-    }
-
-    .card img {
-      width: 100%;
-      height: 130px;
-      object-fit: cover;
-    }
-
-    .card p {
-      padding: 10px;
-      margin: 0;
-      font-size: 16px;
-      text-align: center;
-    }
+    .card:hover { transform: scale(1.05); }
+    .card img { width: 100%; height: 130px; object-fit: cover; }
+    .card p { padding: 10px; margin: 0; font-size: 16px; text-align: center; }
   </style>
 </head>
 <body>
@@ -102,7 +50,7 @@
     </div>
 
     <div class="slider" id="videos">
-      <!-- فيديوهاتك اليدوية -->
+      <!-- ✅ الفيديوهات اليدوية تبقى زي ما هي -->
       <a class="card" href="https://www.youtube.com/watch?v=haH0sW9d9sI" target="_blank">
         <img src="https://i.ytimg.com/vi/haH0sW9d9sI/hqdefault.jpg" alt="Video">
         <p>تعليم رسم العين ب احترافية للمبتدئين | how to draw eye</p>
@@ -112,45 +60,20 @@
         <img src="https://i.ytimg.com/vi/_DOqiHrQPAw/hqdefault.jpg" alt="Video">
         <p>رسم ايس كريم كاواي لطيف خطوة بخطوة مع التلوين للمبتدئين</p>
       </a>
+
       <a class="card" href="https://www.youtube.com/watch?v=HSOUf6t95T8" target="_blank">
         <img src="https://i.ytimg.com/vi/HSOUf6t95T8/hqdefault.jpg" alt="Video">
         <p>حول المثلث إلى شخصية لطيفة بخطوات</p>
       </a>
+
       <a class="card" href="https://www.youtube.com/watch?v=rsQiDRx6JCo" target="_blank">
         <img src="https://i.ytimg.com/vi/rsQiDRx6JCo/hqdefault.jpg" alt="Video">
         <p>تعليم رسم سهل غامبل || بكل سهولة خطوة بخطوة للمبتدئين</p>
       </a>
+
       <a class="card" href="https://www.youtube.com/watch?v=VgCfoDV-DOE" target="_blank">
         <img src="https://i.ytimg.com/vi/VgCfoDV-DOE/hqdefault.jpg" alt="Video">
         <p>تعليم الرسم | كيف ترسم سبونج بوب خطوة بخطوة للمبتدئين</p>
-      </a>
-      <a class="card" href="https://www.youtube.com/watch?v=_DOqiHrQPAw" target="_blank">
-        <img src="https://i.ytimg.com/vi/OP5VAYlOnw4/hqdefault.jpg" alt="Video">
-        <p>رسم انمي كيوت سهل جدا || تعلم رسم آنيا من انمي spy x family</p>
-      </a>
-      <a class="card" href="https://www.youtube.com/watch?v=_DOqiHrQPAw" target="_blank">
-        <img src="https://i.ytimg.com/vi/AVx6mZGZ73E&t/hqdefault.jpg" alt="Video">
-        <p>كيف ترسم لوفي من انمي ون بيس || بكل سهولة</p>
-      </a>
-      <a class="card" href="https://www.youtube.com/watch?v=_DOqiHrQPAw" target="_blank">
-        <img src="https://i.ytimg.com/vi/AWixSSOFkuE/hqdefault.jpg" alt="Video">
-        <p>رسم تانجيرو من أنمي قاتل الشياطين خطوة بخطوة للمبتدئين</p>
-      </a>
-      <a class="card" href="https://www.youtube.com/watch?v=_DOqiHrQPAw" target="_blank">
-        <img src="https://i.ytimg.com/vi/wlYZXTpcsd8/hqdefault.jpg" alt="Video">
-        <p>كيفية رسم توجي فوشيجورو - جوجوتسو كايسن</p>
-      </a>
-      <a class="card" href="https://www.youtube.com/watch?v=_DOqiHrQPAw" target="_blank">
-        <img src="https://i.ytimg.com/vi/RO_yfODbNSs&t/hqdefault.jpg" alt="Video">
-        <p>كيفية رسم هيكارو من أنمي موت هيكارو في الصيف</p>
-      </a>
-      <a class="card" href="https://www.youtube.com/watch?v=_DOqiHrQPAw" target="_blank">
-        <img src="https://i.ytimg.com/vi/XU6XfVi7KBY&t/hqdefault.jpg" alt="Video">
-        <p>كيف ترسم شيزوكا وتاكوبي من أنمي خطيئة تاكوبي</p>
-      </a>
-      <a class="card" href="https://www.youtube.com/watch?v=_DOqiHrQPAw" target="_blank">
-        <img src="https://i.ytimg.com/vi/OglxXY7l_JM&t/hqdefault.jpg" alt="Video">
-        <p>مراجعة انمي Takopi’s Original Sin خطيئة تاكوبي</p>
       </a>
     </div>
   </div>
@@ -162,47 +85,41 @@
       slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
     }
 
-    // 🔥 جلب الفيديوهات تلقائيًا من القناة
-    async function fetchYouTubeVideos() {
-      const API_KEY = "ضع_مفتاح_API_هنا"; // <-- حط مفتاح Google API
-      const CHANNEL_ID = "ضع_هنا_معرف_القناة"; // <-- حط ID القناة
-      const maxResults = 5;
-
-      const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=${maxResults}`;
+    // 🔥 جلب الفيديوهات من Invidious
+    async function fetchInvidiousVideos() {
+      const instance = "https://yewtu.be"; // اختر سيرفر Invidious
+      const channelId = "UCbW63uL8N-4WQhF0xA2Jpmw"; // ضع ID القناة
+      const url = `${instance}/api/v1/channels/${channelId}/videos`;
 
       try {
         const response = await fetch(url);
         const data = await response.json();
         const videosContainer = document.getElementById("videos");
 
-        data.items.forEach(item => {
-          if (item.id.kind === "youtube#video") {
-            const videoId = item.id.videoId;
-            const title = item.snippet.title;
-            const thumbnail = item.snippet.thumbnails.high.url;
+        // ✅ إضافة الفيديوهات الجديدة بعد اليدوية
+        data.forEach(video => {
+          const videoId = video.videoId;
+          const title = video.title;
+          const thumbnail = video.videoThumbnails[3]?.url || video.videoThumbnails[0].url;
 
-            // إنشاء كارت جديد
-            const card = document.createElement("a");
-            card.className = "card";
-            card.href = `https://www.youtube.com/watch?v=${videoId}`;
-            card.target = "_blank";
+          const card = document.createElement("a");
+          card.className = "card";
+          card.href = `https://www.youtube.com/watch?v=${videoId}`;
+          card.target = "_blank";
 
-            card.innerHTML = `
-              <img src="${thumbnail}" alt="${title}">
-              <p>${title}</p>
-            `;
+          card.innerHTML = `
+            <img src="${thumbnail}" alt="${title}">
+            <p>${title}</p>
+          `;
 
-            // نضيف الفيديو للقائمة
-            videosContainer.appendChild(card);
-          }
+          videosContainer.appendChild(card);
         });
       } catch (err) {
         console.error("خطأ في جلب الفيديوهات:", err);
       }
     }
 
-    // تشغيل الجلب عند تحميل الصفحة
-    fetchYouTubeVideos();
+    fetchInvidiousVideos();
   </script>
 
 </body>
