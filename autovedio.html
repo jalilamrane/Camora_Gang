@@ -5,34 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الفيديوهات</title>
   <style>
-    body {
-      background: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
+    body { background: #111; color: #fff; font-family: Arial, sans-serif; margin: 0; padding: 20px; }
     .section { margin-top: 30px; }
-    .section-header {
-      display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;
-    }
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
     .section-header h2 { margin: 0; font-size: 22px; }
     .arrows { display: flex; gap: 10px; }
-    .arrow {
-      background: #333; border: none; color: #fff; font-size: 20px;
-      cursor: pointer; padding: 5px 12px; border-radius: 50%;
-      transition: background 0.3s;
-    }
+    .arrow { background: #333; border: none; color: #fff; font-size: 20px;
+             cursor: pointer; padding: 5px 12px; border-radius: 50%;
+             transition: background 0.3s; }
     .arrow:hover { background: #555; }
-    .slider {
-      display: flex; gap: 15px; overflow-x: auto; scroll-behavior: smooth;
-    }
+    .slider { display: flex; gap: 15px; overflow-x: auto; scroll-behavior: smooth; }
     .slider::-webkit-scrollbar { display: none; }
-    .card {
-      min-width: 220px; background: #222; border-radius: 10px;
-      overflow: hidden; flex-shrink: 0; cursor: pointer;
-      transition: transform 0.3s; text-decoration: none; color: #fff;
-    }
+    .card { min-width: 220px; background: #222; border-radius: 10px; overflow: hidden;
+            flex-shrink: 0; cursor: pointer; transition: transform 0.3s;
+            text-decoration: none; color: #fff; }
     .card:hover { transform: scale(1.05); }
     .card img { width: 100%; height: 130px; object-fit: cover; }
     .card p { padding: 10px; margin: 0; font-size: 16px; text-align: center; }
@@ -50,45 +36,24 @@
     </div>
 
     <div class="slider" id="videos">
-      <!-- ✅ الفيديوهات اليدوية تبقى زي ما هي -->
+      <!-- الفيديوهات اليدوية تبقى كما هي -->
       <a class="card" href="https://www.youtube.com/watch?v=haH0sW9d9sI" target="_blank">
         <img src="https://i.ytimg.com/vi/haH0sW9d9sI/hqdefault.jpg" alt="Video">
         <p>تعليم رسم العين ب احترافية للمبتدئين | how to draw eye</p>
       </a>
-
-      <a class="card" href="https://www.youtube.com/watch?v=_DOqiHrQPAw" target="_blank">
-        <img src="https://i.ytimg.com/vi/_DOqiHrQPAw/hqdefault.jpg" alt="Video">
-        <p>رسم ايس كريم كاواي لطيف خطوة بخطوة مع التلوين للمبتدئين</p>
-      </a>
-
-      <a class="card" href="https://www.youtube.com/watch?v=HSOUf6t95T8" target="_blank">
-        <img src="https://i.ytimg.com/vi/HSOUf6t95T8/hqdefault.jpg" alt="Video">
-        <p>حول المثلث إلى شخصية لطيفة بخطوات</p>
-      </a>
-
-      <a class="card" href="https://www.youtube.com/watch?v=rsQiDRx6JCo" target="_blank">
-        <img src="https://i.ytimg.com/vi/rsQiDRx6JCo/hqdefault.jpg" alt="Video">
-        <p>تعليم رسم سهل غامبل || بكل سهولة خطوة بخطوة للمبتدئين</p>
-      </a>
-
-      <a class="card" href="https://www.youtube.com/watch?v=VgCfoDV-DOE" target="_blank">
-        <img src="https://i.ytimg.com/vi/VgCfoDV-DOE/hqdefault.jpg" alt="Video">
-        <p>تعليم الرسم | كيف ترسم سبونج بوب خطوة بخطوة للمبتدئين</p>
-      </a>
+   
     </div>
   </div>
 
   <script>
     function scrollSlider(id, direction) {
       const slider = document.getElementById(id);
-      const scrollAmount = 250;
-      slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+      slider.scrollBy({ left: direction * 250, behavior: 'smooth' });
     }
 
-    // 🔥 جلب الفيديوهات من Invidious
     async function fetchInvidiousVideos() {
-      const instance = "https://yewtu.be"; // اختر سيرفر Invidious
-      const channelId = "UCbW63uL8N-4WQhF0xA2Jpmw"; // ضع ID القناة
+      const instance = "https://inv.nadeko.net";
+      const channelId = "UCe8dI922xzMsL-DEtSI4wwQ"; // المعرف صحيح بالشكل المثالي
       const url = `${instance}/api/v1/channels/${channelId}/videos`;
 
       try {
@@ -96,7 +61,6 @@
         const data = await response.json();
         const videosContainer = document.getElementById("videos");
 
-        // ✅ إضافة الفيديوهات الجديدة بعد اليدوية
         data.forEach(video => {
           const videoId = video.videoId;
           const title = video.title;
@@ -111,7 +75,6 @@
             <img src="${thumbnail}" alt="${title}">
             <p>${title}</p>
           `;
-
           videosContainer.appendChild(card);
         });
       } catch (err) {
