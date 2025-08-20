@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سلايدر الفيديوهات</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
 
+    .section {
+      margin-top: 30px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .arrows {
+      display: flex;
+      gap: 10px;
+    }
+
+    .arrow {
+      background: #333;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 5px 12px;
+      border-radius: 50%;
+      transition: background 0.3s;
+    }
+
+    .arrow:hover {
+      background: #555;
+    }
+
+    .slider {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none; /* إخفاء الشريط */
+    }
+
+    .card {
+      min-width: 220px;
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+    }
+
+    .card p {
+      padding: 10px;
+      margin: 0;
+      font-size: 16px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <div class="section-header">
+      <h2>الفيديوهات</h2>
+      <div class="arrows">
+        <button class="arrow" onclick="scrollSlider('videos', -1)">&#10094;</button>
+        <button class="arrow" onclick="scrollSlider('videos', 1)">&#10095;</button>
+      </div>
+    </div>
+
+    <div class="slider" id="videos">
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/haH0sW9d9sI/hqdefault.jpg" alt="Video">
+        <p>تعليم رسم العين ب احترافية للمبتدئين | how to draw eye
+</p>
+      </div>
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/VIDEO_ID2/hqdefault.jpg" alt="Video">
+        <p>عنوان الفيديو 2</p>
+      </div>
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/VIDEO_ID3/hqdefault.jpg" alt="Video">
+        <p>عنوان الفيديو 3</p>
+      </div>
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/VIDEO_ID4/hqdefault.jpg" alt="Video">
+        <p>عنوان الفيديو 4</p>
+      </div>
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/VIDEO_ID5/hqdefault.jpg" alt="Video">
+        <p>عنوان الفيديو 5</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function scrollSlider(id, direction) {
+      const slider = document.getElementById(id);
+      const scrollAmount = 250; // المسافة بالبيكسل عند الضغط
+      slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
