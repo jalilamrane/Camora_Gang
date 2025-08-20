@@ -79,17 +79,17 @@
     /* صورة أسفل الشريط */
     .main-image {
       width: 100%;
-      height: 190px; /* 3 أضعاف ارتفاع الشريط (60 × 3) */
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      max-width: 1920px;   /* أقصى عرض */
+      aspect-ratio: 1920 / 420; /* يحافظ على التناسب */
+      margin: 10px auto 0; /* وسط الشاشة */
       overflow: hidden;
-      margin-top: 10px;
+      border-radius: 6px; /* لمسة جمالية */
     }
 
     .main-image img {
+      width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: cover; /* يملأ الصورة بالكامل */
     }
   </style>
 </head>
