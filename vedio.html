@@ -88,6 +88,30 @@
     </div>
   </div>
 
+<!-- 🔥 قسم الشورتس -->
+<div class="section">
+  <div class="section-header">
+    <h2>شورتس</h2>
+    <div class="arrows">
+      <button class="arrow" onclick="scrollSlider('shorts', -1)">&#10094;</button>
+      <button class="arrow" onclick="scrollSlider('shorts', 1)">&#10095;</button>
+    </div>
+  </div>
+
+  <div class="slider" id="shorts">
+    <!-- 🎬 مثال على فيديوهات الشورتس -->
+    <a class="card" href="https://www.youtube.com/shorts/abc123" target="_blank">
+      <img src="https://i.ytimg.com/vi/abc123/hqdefault.jpg" alt="Short">
+      <p>شورتس قصير #1</p>
+    </a>
+
+    <a class="card" href="https://www.youtube.com/shorts/xyz456" target="_blank">
+      <img src="https://i.ytimg.com/vi/xyz456/hqdefault.jpg" alt="Short">
+      <p>شورتس قصير #2</p>
+    </a>
+  </div>
+</div>
+
   <script>
     function scrollSlider(id, direction) {
       const slider = document.getElementById(id);
